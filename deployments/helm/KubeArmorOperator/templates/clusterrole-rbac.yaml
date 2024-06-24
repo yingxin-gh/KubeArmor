@@ -90,6 +90,13 @@ rules:
   - customresourcedefinitions
   verbs:
   - create
+- apiGroups:
+  - batch
+  resources:
+  - jobs
+  - cronjobs
+  verbs:
+  - get
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
@@ -116,6 +123,17 @@ rules:
   - replicasets
   - daemonsets
   - statefulsets
+  verbs:
+  - get
+  - patch
+  - list
+  - watch
+  - update
+- apiGroups:
+  - batch
+  resources:
+  - jobs
+  - cronjobs
   verbs:
   - get
   - patch
